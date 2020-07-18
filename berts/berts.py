@@ -20,7 +20,11 @@ def BertClassificationModel(
     pooled_output, seq_outputs = bert_layers([input_words_seq, input_attention_mask, input_segment_mask])
 
     # classfication layer
-    output = keras.layers.Dropout(0.1)(pooled_output)
+    if return_sequences:
+        classification_input = seq_outputs
+    else:
+        classification_input = pooled_output
+    output = keras.layers.Dropout(0.1)(classification_input)
     if classes <= 2: # binary classfication
         output = keras.layers.Dense(1, activation='sigmoid')(output)
     else: # categorical classfication
