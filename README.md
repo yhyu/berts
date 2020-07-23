@@ -18,3 +18,12 @@ model, bert_layer = BertClassificationModel(
     return_sequences=True
 )
 ```
+
+## extraction-based query answering
+See [extraction-based question answering](https://github.com/yhyu/berts/blob/master/question_answering.ipynb) example.
+```python
+model, bert_layer = BertEQAModel(
+    bert_url,
+    return_cls=True
+)
+```

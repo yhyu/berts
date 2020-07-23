@@ -17,7 +17,7 @@ def get_bert_inputs(tokenizer, seq1, seq2=None, tokenized=False):
     input_seg_cls = tf.zeros_like(cls)
     input_seg1 = tf.zeros_like(sentence1)
 
-    if seq2 != None:
+    if seq2 is not None:
         sentence2 = tf.ragged.constant([encode_sentence(tokenizer, s, tokenized) for s in seq2])
         input_words = tf.concat([cls, sentence1, sentence2], axis=-1)
 
