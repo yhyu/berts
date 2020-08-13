@@ -10,7 +10,7 @@ model, bert_layer = BertClassificationModel(bert_url, classes)
 ```
 
 ## sequence output classfication
-See [pos tagging](https://github.com/yhyu/berts/blob/master/pos_tagging.ipynb) example.
+See [pos tagging](https://github.com/yhyu/berts/blob/master/pos_tagging.ipynb), and [NER](https://github.com/yhyu/berts/blob/master/NER.ipynb) examples.
 ```python
 model, bert_layer = BertClassificationModel(
     bert_url,

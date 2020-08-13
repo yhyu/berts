@@ -2,9 +2,12 @@ import tensorflow as tf
 
 def encode_sentence(tokenizer, s, tokenized=False):
     if tokenized:
-        tokens = s
+        tokens = s.copy()
     else:
-        tokens = list(tokenizer.tokenize(s.numpy()))
+        if isinstance(s, str):
+            tokens = list(tokenizer.tokenize(s))
+        else:
+            tokens = list(tokenizer.tokenize(s.numpy()))
     tokens.append('[SEP]')
     return tokenizer.convert_tokens_to_ids(tokens)
 
